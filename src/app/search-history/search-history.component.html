@@ -1,0 +1,8 @@
+<h3>Search History</h3>
+@if (searchResults(); as results) {
+<div class="container">
+  @for(result of results; track result) {
+  <button (click)="handleEmit(result)">{{ result }}</button>
+  }
+</div>
+}

@@ -7,13 +7,15 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FormsModule } from '@angular/forms';
 import { WeatherDisplayComponent } from './weather-display/weather-display.component';
 import { WeatherCardComponent } from './weather-card/weather-card.component';
-
+import { WeatherDataService } from './weather-data.service';
+import { SearchHistoryComponent } from './search-history/search-history.component';
 @NgModule({
   declarations: [
     AppComponent,
     SearchbarComponent,
     WeatherDisplayComponent,
-    WeatherCardComponent
+    WeatherCardComponent,
+    SearchHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,7 @@ import { WeatherCardComponent } from './weather-card/weather-card.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [WeatherDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

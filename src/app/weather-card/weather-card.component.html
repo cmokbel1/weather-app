@@ -1,8 +1,21 @@
+@if (forecastData(); as forecast) {
 <div class="card-container">
-    <h4>description:</h4>
-    <h4>humidity:</h4>
-    <h4>temperature:</h4>
-    <h5>min:</h5>
-    <h5>max:</h5>
-    <h4>wind speed:</h4>
+  <strong>{{ forecast.dt_txt }}</strong>
+  <span>{{ forecast.description }}</span>
+  <span>humidity: {{ forecast.humidity }} <strong>%</strong></span>
+  <span
+    >temperature: {{ forecast.temperature }}
+    <sup><strong>ºF</strong></sup></span
+  >
+  <span
+    >low: {{ forecast.min }} <sup><strong>ºF</strong></sup></span
+  >
+  <span
+    >high: {{ forecast.max }} <sup><strong>ºF</strong></sup></span
+  >
+  <span
+    >wind speed: {{ forecast.windSpeed }} <sup><strong>MPH</strong></sup></span
+  >
+  <img src="https://openweathermap.org/img/w/{{ forecast.icon }}.png" />
 </div>
+}

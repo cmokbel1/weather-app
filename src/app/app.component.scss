@@ -1,0 +1,10 @@
+.main-container {
+    display:flex;
+    flex-direction: row;
+    gap: 5rem;
+    
+    .secondary-container {
+        display:flex;
+        flex-direction: column;
+    }
+}

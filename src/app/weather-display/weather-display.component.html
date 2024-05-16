@@ -1,8 +1,27 @@
-<p>weather-display works!</p>
-<div class="flex-container">
-<app-weather-card></app-weather-card>
-<app-weather-card></app-weather-card>
-<app-weather-card></app-weather-card>
-<app-weather-card></app-weather-card>
-<app-weather-card></app-weather-card>
+@if (currentWeather(); as weather) {
+<div class="main-container">
+  <h3>{{ weather.name }}</h3>
+  <div class="currentWeather-display">
+    <span>{{ weather.description }}</span>
+    <span>humidity: {{ weather.humidity }} <strong>%</strong></span>
+    <span
+      >temperature: {{ weather.temperature }}
+      <sup><strong>ºF</strong></sup></span
+    >
+    <span
+      >low: {{ weather.min }} <sup><strong>ºF</strong></sup></span
+    >
+    <span
+      >high: {{ weather.max }} <sup><strong>ºF</strong></sup></span
+    >
+    <img src="https://openweathermap.org/img/w/{{ weather.icon }}.png" />
+  </div>
+  <h3>Here's your 5-day forecast</h3>
+  <div class="flex-container">
+    @for (weatherEvent of weatherDataService.getForecastData(); track
+    weatherEvent) {
+    <app-weather-card [forecastData]="weatherEvent"></app-weather-card>
+    }
+  </div>
 </div>
+}

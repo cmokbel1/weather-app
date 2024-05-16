@@ -1,19 +1,17 @@
-<ng-template>
-  <div class="container">
-    <form #search="ngForm" (ngSubmit)="searchCity()">
-      <label for="search-input">City: </label>
-      <input
-        name="search-input"
-        type="text"
-        [(ngModel)]="searchInput"
-        placeholder="enter city name"
-      />
-      <button type="submit" [disabled]="searchInput === '' || loading">
-        Search
-      </button>
-      @if (errorMessage !== '') {
-      <em>{{ errorMessage }}</em>
-      }
-    </form>
-  </div>
-</ng-template>
+<div class="container">
+  <form #search="ngForm" (ngSubmit)="searchCity(searchInput)">
+    <label for="search-input">City: </label>
+    <input
+      name="search-input"
+      type="text"
+      [(ngModel)]="searchInput"
+      placeholder="enter city name"
+    />
+    <button type="submit" [disabled]="searchInput === '' || loading">
+      Search
+    </button>
+    @if (errorMessage !== '') {
+    <em>{{ errorMessage }}</em>
+    }
+  </form>
+</div>

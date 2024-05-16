@@ -1,5 +1,15 @@
-<div class="container">
-  <app-searchbar></app-searchbar>
-  <app-weather-display></app-weather-display>
+<div class="main-container">
+  <app-search-history
+    [searchResults]="weatherDataService.getSearchResults()"
+    (selectedCity)="handleEmit($event)"
+  ></app-search-history>
+  <div class="secondary-container">
+    <app-searchbar
+      [previouslySearched]="emittedCityFromHistory()"
+    ></app-searchbar>
+    <app-weather-display
+      [currentWeather]="weatherDataService.getCurrentData()"
+    ></app-weather-display>
+  </div>
 </div>
 <router-outlet></router-outlet>
